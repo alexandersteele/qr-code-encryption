@@ -1,0 +1,24 @@
+{
+  "name": "qr-code-encryption",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandersteele/qr-code-encryption.git"
+  },
+  "author": "Alexander Steele",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexandersteele/qr-code-encryption/issues"
+  },
+  "homepage": "https://github.com/alexandersteele/qr-code-encryption#readme",
+  "dependencies": {
+    "jimp": "^0.9.5",
+    "qrcode": "^1.4.4",
+    "qrcode-reader": "^1.0.4"
+  }
+}
