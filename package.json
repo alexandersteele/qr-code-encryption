@@ -1,7 +1,7 @@
 {
   "name": "qr-code-encryption",
   "version": "1.0.0",
-  "description": "",
+  "description": "Encrypt or decrypt QR code data.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/alexandersteele/qr-code-encryption#readme",
   "dependencies": {
+    "crypto-js": "^4.0.0",
     "jimp": "^0.9.5",
     "qrcode": "^1.4.4",
     "qrcode-reader": "^1.0.4"
