@@ -1,9 +1,8 @@
-const QRCode = require('qrcode')
 const QRCodeReader = require('qrcode-reader');
 const Jimp = require("jimp");
 const fs = require('fs');
 const CryptoJS = require("crypto-js");
-
+const QRCode = require('qrcode')
 
 const createEncrpytedMessage = (input, secret) => CryptoJS.AES.encrypt(input, secret).toString();
 
@@ -18,7 +17,21 @@ const readQR = async (file) => {
     return await resultPromise;
 };
 
-module.exports = encryptQR = (pathname, message, secret) => {
+const decryptQR = (pathname, secret) => {
+    if (typeof secret === 'undefined') {
+        console.log("Undefined secret key...")
+    } else {
+        return new Promise ((res, rej) => {
+            readQR(pathname)
+            .then((qrData) => (
+                res(CryptoJS.AES.decrypt(qrData.result, secret).toString(CryptoJS.enc.Utf8)))
+            )
+            .catch(e => rej(e))
+        })
+    }
+}
+
+const encryptQR = (pathname, message, secret) => {
     return new Promise ((res, rej) => {
         try {
             res(QRCode.toFile(pathname, createEncrpytedMessage(message, secret)))
@@ -28,16 +41,5 @@ module.exports = encryptQR = (pathname, message, secret) => {
     })     
 }
 
-module.exports = decryptQR = (pathname, secret) => {
-    return new Promise ((res, rej) => {
-        readQR(pathname)
-        .then((qrData) => (
-            res(CryptoJS.AES.decrypt(qrData.result, secret).toString(CryptoJS.enc.Utf8)))
-        )
-        .catch(e => rej(e))
-    })
-}
+module.exports = {decryptQR, encryptQR};
 
-encryptQR('code_images/encrypted_code.png', "hi bradley", "abcdef").then(() => {
-    decryptQR('code_images/encrypted_code.png', "abcdef").then((x) => console.log(x)) 
-})
