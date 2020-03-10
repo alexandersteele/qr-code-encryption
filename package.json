@@ -1,6 +1,6 @@
 {
   "name": "qr-code-encryption",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Encrypt or decrypt QR code data.",
   "main": "index.js",
   "engines": {
