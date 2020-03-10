@@ -15,7 +15,7 @@ npm install qr-code-encryption
 To encrypt data into a QR code:
 * Insert the desired image location (if placed in a subfolder, please create this yourself) as the first parameter
 * Insert the data (or message) as the second parameter
-* Add a secret key as the third parameter
+* (optional: Add a secret key as the third parameter - if not set, the qr is not encrypted)
 * (optional: add a callback to execute after the encryption has finished)
 
 ```

@@ -32,13 +32,15 @@ const decryptQR = (pathname, secret) => {
 }
 
 const encryptQR = (pathname, message, secret) => {
+    
     return new Promise ((res, rej) => {
         try {
-            res(QRCode.toFile(pathname, createEncrpytedMessage(message, secret)))
+            secret ? res(QRCode.toFile(pathname, createEncrpytedMessage(message, secret))) : 
+                res(QRCode.toFile(pathname, message))
         } catch (e) {
             rej(e)
         }
-    })     
+    }) 
 }
 
 module.exports = {decryptQR, encryptQR};
