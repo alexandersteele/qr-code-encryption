@@ -1,4 +1,8 @@
 # qr-code-encryption
+![npm](https://img.shields.io/npm/v/qr-code-encryption)
+![NPM](https://img.shields.io/npm/l/qr-code-encryption)
+![node](https://img.shields.io/node/v/qr-code-encryption)
+
 
 ## Install
 ```

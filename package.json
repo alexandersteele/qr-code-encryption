@@ -3,6 +3,10 @@
   "version": "1.0.10",
   "description": "Encrypt or decrypt QR code data.",
   "main": "index.js",
+  "engines": {
+    "node": "12.14.0",
+    "npm": "6.13.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
